@@ -88,9 +88,20 @@ body {
 @media (max-width: 475px) {
   .container {
     width: 100%;
-    border-radius: 0;
+    height: 100vh; /* prend toute la hauteur de l’écran */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* display en haut, clavier en bas */
     padding: 20px 10px;
     gap: 20px;
-    justify-content: flex-start;
+  }
+
+  .display {
+    width: 100%;
+  }
+
+  .keybord {
+    width: 100%;
   }
 }
+
