@@ -70,6 +70,16 @@ body {
     font-weight: 700;
     font-size: 2em;
     box-shadow:  0 4px 2px 0 rgb(0, 0, 0);
+    transition: 0.40s ease;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+.btn:active {
+    
+    transform: scale(0.95);
 }
 
 .egal-btn {
