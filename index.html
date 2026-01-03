@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calculatrice HK</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="display"> 
+                <span id="screen"></span> 
+                <span class="cursor"></span> 
+            </div>
+            <div class="keybord">
+                <button onclick="clearDisplay()" class="btn sup-comp-btn">AC</button>
+                <button onclick="appendValue('/')" class="btn division-btn">/</button>
+                <button onclick="appendValue('*')" class="btn multip-btn">X</button>
+                <button onclick="deleteLast()" class="btn suppress-btn">
+                   <i data-lucide="backspace"></i>
+                </button>
+                <button onclick="appendValue('7')" class="btn sept-btn">7</button>
+                <button onclick="appendValue('8')" class="btn huit-btn">8</button>
+                <button onclick="appendValue('9')" class="btn neuf-btn">9</button>
+                <button onclick="appendValue('-')" class="btn moins-btn">-</button>
+                <button onclick="appendValue('4')" class="btn quatre-btn">4</button>
+                <button onclick="appendValue('5')" class="btn cinq-btn">5</button>
+                <button onclick="appendValue('6')" class="btn six-btn">6</button>
+                <button onclick="appendValue('+')" class="btn plus-btn">+</button>
+                <button onclick="appendValue('1')" class="btn un-btn">1</button>
+                <button onclick="appendValue('2')" class="btn deux-btn">2</button>
+                <button onclick="appendValue('3')" class="btn trois-btn">3</button>
+                <button onclick="appendValue('0')" class="btn zero-btn">0</button>
+                <button onclick="appendValue('.')" class="btn point-btn">.</button>
+                <button onclick="calculate()" class="btn egal-btn">=</button>
+
+            </div>
+        </div>
+
+        <script src="app.js"></script>
+    </body>
+</html>
