@@ -67,7 +67,7 @@ body {
     border-radius: 20px;
     padding: 10px 10px;
     font-weight: 700;
-    font-size: 2.3em;
+    font-size: 2em;
 }
 
 .egal-btn {
@@ -85,3 +85,12 @@ body {
     background: #ED6D2A; 
 }
 
+@media (max-width: 475px) {
+  .container {
+    width: 100%;
+    border-radius: 0;
+    height: 100vh;
+    padding: 20px 10px;
+    gap: 30px;
+  }
+}
