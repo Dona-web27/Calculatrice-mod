@@ -38,3 +38,22 @@ document.addEventListener("keydown", (e) => {
         clearDisplay();
     }
 })
+
+// Fonction pour formater les nombres avec espaces 
+function formatNumber(num) { 
+return Number(num).toLocaleString("fr-FR"); 
+}
+
+// Fonction pour enlever les espaces avant un calcul 
+function cleanNumber(num) { 
+ return num.replace(/\s/g, ""); 
+}
+
+// Quand on appuie sur un bouton 
+ function appendValue(val) {  
+// On enlève les espaces pour éviter les bugs 
+let raw = cleanNumber(display.textContent); 
+// On ajoute la valeur 
+raw += val; // On reformate avec les espaces 
+display.textContent = formatNumber(raw); 
+}
