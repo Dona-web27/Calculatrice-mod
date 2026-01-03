@@ -32,4 +32,38 @@ Ce projet met l’accent sur le design, l’ergonomie et une logique JavaScript 
 ---
 
 ## 📂 Structure du projet
+/
+├── index.html
+├── style.css
+└── script.js
 
+
+---
+
+## 🚀 Comment utiliser
+
+1. Télécharger ou cloner le projet  
+2. Ouvrir `index.html` dans un navigateur  
+3. Profiter de la calculatrice !
+
+---
+
+## 📌 Objectifs du projet
+
+- Pratiquer la manipulation du DOM  
+- Améliorer la logique JavaScript  
+- Travailler un design propre et professionnel  
+- Comprendre la gestion d’état dans une interface interactive  
+
+---
+
+## 🧑‍💻 Auteur
+
+**Donatien**  
+Projet personnel d’apprentissage du développement web.
+
+---
+
+## 📄 Licence
+
+Ce projet est libre d’utilisation pour l’apprentissage.
