@@ -40,6 +40,14 @@ body {
     overflow: hidden;
 }
 
+#screen {
+    display: inline-block; 
+    white-space: nowrap; 
+    max-width: 100%; 
+    font-size: 1em; 
+    transform-origin: right center; /* important pour réduire la taille depuis la droite */
+}
+
 .cursor {
     width: 2px;
     height: 60px;
