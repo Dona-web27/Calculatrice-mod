@@ -92,5 +92,6 @@ body {
     height: 100vh;
     padding: 20px 10px;
     gap: 20px;
+    justify-content: space-between;
   }
 }
