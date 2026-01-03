@@ -94,7 +94,7 @@ body {
     justify-content: space-between; /* display en haut, clavier en bas */
     padding: 20px 10px;
     gap: 20px;
-    border-radius: 0; /* coins carrés */
+    border-radius: 0;
   }
 
   .display {
