@@ -3,17 +3,38 @@ const display = document.getElementById('screen');
 
 // Ajouter une valeur dans l'écran 
 function appendValue(val) { 
-    // On enlève les espaces pour éviter les bugs 
-    let raw = cleanNumber(display.textContent);
-    // Si c'est un opérateur on l'ajoute tel quel
+    let txt = display.textContent;
+
+    // Si c'est un opérateur, on l'ajoute sans formatage
     if (['+', '-', '*', '/'].includes(val)) {
         display.textContent += val;
         autoResize();
         return;
     }
 
-    raw += val; // On reformate avec les espaces 
-    display.textContent = formatNumber(raw); 
+    // Trouver le dernier opérateur dans l'expression
+    let lastOpIndex = Math.max(
+        txt.lastIndexOf('+'),
+        txt.lastIndexOf('-'),
+        txt.lastIndexOf('*'),
+        txt.lastIndexOf('/')
+    );
+    
+    // Partie avant le nombre en cours
+    let before = txt.slice(0, lastOpIndex + 1);
+
+    // Nombre en cours (après le dernier opérateur)
+    let number = txt.slice(lastOpIndex + 1);
+
+    // Nettoyer et ajouter le chiffre
+    number = cleanNumber(number) + val;
+
+    // Reformatter uniquement le nombre
+    let formatted = formatNumber(number);
+
+    // Mettre à jour l'affichage avec formatage
+    display.textContent = before + formatted;
+
     autoResize();
 }
 
