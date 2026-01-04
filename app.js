@@ -3,13 +3,27 @@ const display = document.getElementById('screen');
 
 // Ajouter une valeur dans l'écran 
 function appendValue(val) { 
-    display.textContent += val; 
+    // On enlève les espaces pour éviter les bugs 
+    let raw = cleanNumber(display.textContent);
+    // Si c'est un opérateur on l'ajoute tel quel
+    if (['+', '-', '*', '/'].includes(val)) {
+        display.textContent += val;
+        autoResize();
+        return;
+    }
+
+    raw += val; // On reformate avec les espaces 
+    display.textContent = formatNumber(raw); 
+    autoResize();
 }
 
 // Calculer le résultat 
 function calculate() { 
     try { 
-        display.textContent = eval(display.textContent); // ⚠️ eval juste pour apprendre 
+        let raw = cleanNumber(display.textContent); 
+        let result = eval(raw); 
+        display.textContent = formatNumber(result); 
+        autoResize(); 
          } catch { 
             display.textContent = "Erreur"; 
         } 
@@ -18,11 +32,23 @@ function calculate() {
 // Effacer l'écran
 function clearDisplay() { 
     display.textContent = ''; 
+    display.style.transform = "scale(1)";
 }
 
 // Supprimer le dernier caractère
 function deleteLast() { 
-    display.textContent = display.textContent.slice(0, -1); 
+    let txt = display.textContent.slice(0, -1);
+
+    // Si ça finit par un opérateur, pas de formatage
+    if (/[+\-*/]$/.test(txt)) {
+        display.textContent = txt;
+        autoResize();
+        return;
+    }
+
+    let raw = cleanNumber(txt); 
+    display.textContent = formatNumber(raw); 
+    autoResize();
 }
 
 // Gérer les touches du clavier
@@ -49,11 +75,17 @@ function cleanNumber(num) {
  return num.replace(/\s/g, ""); 
 }
 
-// Quand on appuie sur un bouton 
- function appendValue(val) {  
-// On enlève les espaces pour éviter les bugs 
-let raw = cleanNumber(display.textContent); 
-// On ajoute la valeur 
-raw += val; // On reformate avec les espaces 
-display.textContent = formatNumber(raw); 
+function autoResize() {
+  const maxScale = 1;   // taille normale
+  const minScale = 0.4; // taille minimum (40%)
+  let scale = maxScale;
+
+  // On remet la taille normale avant de mesurer
+  display.style.transform = `scale(${maxScale})`;
+
+  // Si le texte dépasse, on réduit progressivement
+  while (display.scrollWidth > display.parentElement.clientWidth && scale > minScale) {
+    scale -= 0.01;
+    display.style.transform = `scale(${scale})`;
+  }
 }
